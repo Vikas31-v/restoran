@@ -18,18 +18,24 @@ from django.contrib import admin
 from django.urls import path,include
 from django.views.generic import  TemplateView
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',TemplateView.as_view(template_name='index.html'),name='home'),
     path('about/',TemplateView.as_view(template_name='about.html'),name='about'),
     path('booking/',TemplateView.as_view(template_name='booking.html'),name='booking'),
     path('contact/',TemplateView.as_view(template_name='contact.html'),name='contact'),
-    path('menu/',TemplateView.as_view(template_name='menu.html'),name='menu'),
     path('service/',TemplateView.as_view(template_name='service.html'),name='service'),
     path('team/',TemplateView.as_view(template_name='team.html'),name='team'),
     path('testimonial/',TemplateView.as_view(template_name='testimonial.html'),name='testimonial'),
+    path('popular_breakfast/',TemplateView.as_view(template_name='menu.html'),name='popular_breakfast'),
+    path('special_launch/',TemplateView.as_view(template_name='menu.html'),name='special_launch'),
+    path('lovely_dinner/',TemplateView.as_view(template_name='menu.html'),name='lovely_dinner'),
     path('accounts/',include('accounts.urls')),
     path('order/',include('order.urls')),
     path('products/',include('products.urls')),
+    path('cart/',include('cart.urls')),
+    path('category/',include('category.urls')),
+    path('payment/',include('payment.urls')),
 
 ]

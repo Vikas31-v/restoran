@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+
+
+
+
+
+<li class="nav-item">
+    <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="{% url 'popular_breakfast' %}">
+        <i class="fa fa-coffee fa-2x text-primary"></i>
+        <div class="ps-3">
+            <small class="text-body">Popular</small>
+            <h6 class="mt-n1 mb-0">Breakfast</h6>
+        </div>
+    </a>
+</li>
+
+
+
+{% endblock %}
