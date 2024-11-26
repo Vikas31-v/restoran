@@ -136,7 +136,7 @@
                                 <label for="f-option4">I’ve read and accept the </label>
                                 <a href="{% static '#' %}">terms & conditions*</a>
                             </div>
-                            <a href="/"><button  class="primary-btn" id="rzp-button1">Proceed to Payment</button></a>
+                            <a href="{% url 'Proceed_to_payment' %}"><button  class="primary-btn" id="rzp-button1">Proceed to Payment</button></a>
                         </div>
                     </div>
                 </div>
@@ -155,13 +155,13 @@ document.getElementById('rzp-button1').onclick = function(e){
                 console.log(data.callback_url);
                 
                 var options = {
-                    "key": data.RAZORPAY_KEY_ID, // Enter the Key ID generated from the Dashboard
-                    "amount": data.payment.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-                    "currency": data.payment.currency,
-                    "name": "Acme Corp",
+                    "key": "{{RAZORPAY_KEY_ID}}", // Enter the Key ID generated from the Dashboard
+                    "amount": "{{data.payment.amount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                    "currency": "{{data.payment.currency}}",
+                    "name": "restoran",
                     "description": "Test Transaction",
                     "image": "https://example.com/your_logo",
-                    "order_id": data.payment.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                    "order_id": "{{data.payment.id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
                     "callback_url": "http://127.0.0.1:8000/payment/verify-payment/",
                     "prefill": {
                         "name": "Gaurav Kumar",
